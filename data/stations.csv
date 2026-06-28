@@ -1,0 +1,6 @@
+id,name,line,isInterchange
+1,Rajiv Chowk,Blue,true
+2,New Delhi,Yellow,true
+3,Patel Chowk,Yellow,false
+4,Chawri Bazar,Yellow,false
+5,Kashmere Gate,Red,true
