@@ -1,1 +1,89 @@
-file.txt
+# ==========================================
+# Metro Navigator Pro - .gitignore
+# ==========================================
+
+# --------------------------
+# Build Files
+# --------------------------
+*.o
+*.obj
+*.exe
+*.out
+*.dll
+*.a
+*.lib
+
+# Build directories
+build/
+bin/
+Debug/
+Release/
+
+# --------------------------
+# CMake
+# --------------------------
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# --------------------------
+# Visual Studio Code
+# --------------------------
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+
+# Keep extension recommendations
+!.vscode/extensions.json
+
+# --------------------------
+# Temporary Files
+# --------------------------
+*.tmp
+*.temp
+*.log
+
+# --------------------------
+# Operating System Files
+# --------------------------
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# --------------------------
+# Backup Files
+# --------------------------
+*.bak
+*.old
+*.orig
+*.swp
+
+# --------------------------
+# Coverage / Testing
+# --------------------------
+coverage/
+*.gcda
+*.gcno
+*.gcov
+
+# --------------------------
+# Archives
+# --------------------------
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# --------------------------
+# Generated Executables
+# --------------------------
+metro.exe
+
+# Future executable names
+MetroNavigator.exe
+MetroNavigatorPro.exe
