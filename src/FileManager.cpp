@@ -1,5 +1,6 @@
 #include "Graph.h"
 #include "FileManager.h"
+#include "MetroSystem.h"
 
 #include<fstream>
 #include<sstream>
@@ -86,3 +87,21 @@ bool FileManager::loadRoutes(
 
     return true;
 }
+
+     void MetroSystem::initializeSystem()
+{
+    if (!fileManager.loadStations("data/stations.csv", graph))
+    {
+        std::cout << "Failed to load stations.\n";
+        return;
+    }
+
+    if (!fileManager.loadRoutes("data/routes.csv", graph))
+    {
+        std::cout << "Failed to load routes.\n";
+        return;
+    }
+
+    std::cout << "Metro data loaded successfully.\n";
+}
+
