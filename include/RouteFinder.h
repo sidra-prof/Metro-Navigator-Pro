@@ -13,5 +13,10 @@ public:
     vector<string>findRouteBFS(const string& source,
       const string& destination);
 
+    vector<string> findRouteDijkstra(
+    const string& source,
+    const string& destination
+);
+
 };
 #endif

@@ -17,20 +17,17 @@ int main()
 
     RouteFinder routeFinder(metro);
 
-    vector<string> route =
-        routeFinder.findRouteBFS(
-            "Rajiv Chowk",
-            "Kashmere Gate"
-        );
+vector<string> route =
+    routeFinder.findRouteDijkstra(
+        "Rajiv Chowk",
+        "Kashmere Gate"
+    );
 
-    cout << "\n========== SHORTEST ROUTE ==========\n\n";
+cout << "\nShortest Distance Route\n\n";
 
-    for(const auto& station : route)
-    {
-        cout << station << endl;
-    }
+for(const auto& station : route)
+{
+    cout << station << endl;
+}
 
-    cout << "\n====================================\n";
-
-    return 0;
 }

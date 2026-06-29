@@ -1,11 +1,14 @@
 #include "RouteFinder.h"
 #include "Graph.h"
 
-#include <iostream>
 #include <queue>
-#include <unordered_set>
+#include <limits>
 #include <unordered_map>
 #include <algorithm>
+#include <functional>
+#include <iostream>
+#include <unordered_set>
+
 
 using namespace std;
 
@@ -72,7 +75,7 @@ vector<string> RouteFinder::findRouteBFS(
         // Visit neighbours
         for(const auto& neighbour : graphData.at(currentStation))
         {
-            string nextStation = neighbour.first;
+            string nextStation = neighbour.destination;
 
             if(visited.find(nextStation) == visited.end())
             {
@@ -94,6 +97,86 @@ vector<string> RouteFinder::findRouteBFS(
     }
 
     // Reconstruct path
+    string current = destination;
+
+    while(current != source)
+    {
+        path.push_back(current);
+        current = parent[current];
+    }
+
+    path.push_back(source);
+
+    reverse(path.begin(), path.end());
+
+    return path;
+
+}
+vector<string> RouteFinder::findRouteDijkstra(
+    const string& source,
+    const string& destination)
+{
+    vector<string> path;
+
+    const auto& graphData = graph.getAdjacencyList();
+
+    if(graphData.find(source) == graphData.end())
+        return path;
+
+    if(graphData.find(destination) == graphData.end())
+        return path;
+
+    unordered_map<string,int> distance;
+    unordered_map<string,string> parent;
+
+    // Initialize all distances
+    for(const auto& station : graphData)
+    {
+        distance[station.first] = numeric_limits<int>::max();
+    }
+
+    distance[source] = 0;
+
+    priority_queue<
+        pair<int,string>,
+        vector<pair<int,string>>,
+        greater<pair<int,string>>
+    > pq;
+
+    pq.push({0, source});
+
+    while(!pq.empty())
+    {
+        int currentDistance = pq.top().first;
+        string currentStation = pq.top().second;
+
+        pq.pop();
+
+        if(currentStation == destination)
+            break;
+
+        for(const auto& neighbour : graphData.at(currentStation))
+        {
+            string nextStation = neighbour.destination;
+            int weight = neighbour.distance;
+
+            if(currentDistance + weight < distance[nextStation])
+            {
+                distance[nextStation] = currentDistance + weight;
+
+                parent[nextStation] = currentStation;
+
+                pq.push({distance[nextStation], nextStation});
+            }
+        }
+    }
+
+    if(source != destination &&
+       parent.find(destination) == parent.end())
+    {
+        return path;
+    }
+
     string current = destination;
 
     while(current != source)

@@ -36,9 +36,22 @@ void Graph::addConnection(
     addStation(source);
     addStation(destination);
     //source -> destination
-    adjacencyList[source].push_back({destination,distance});
+     Edge edge;
+
+    edge.destination = destination;
+
+    edge.distance = distance;
+
+    adjacencyList[source].push_back(edge);   
     //destination -> source 
-    adjacencyList[destination].push_back({source,distance});
+    Edge reverseEdge;
+
+    reverseEdge.destination = source;
+
+    reverseEdge.distance = distance;
+
+    adjacencyList[destination].push_back(reverseEdge);
+    
 }
 
 /*------------------------------------------------
@@ -46,7 +59,7 @@ void Graph::addConnection(
 --------------------------------------------------*/       
 const unordered_map<
     string,
-    vector<pair<string,int>>
+    vector<Edge>
 >& Graph::getAdjacencyList() const
 {
     return adjacencyList;
@@ -65,12 +78,12 @@ void Graph::displayGraph() const
 
         for (const auto& neighbour : station.second)
         {
-            cout << "   --> "
-                 << neighbour.first
-                 << " ("
-                 << neighbour.second
-                 << " km)"
-                 << endl;
+           cout << " --> "
+                << neighbour.destination
+                << " ("
+                << neighbour.distance
+                << " km)"
+                << endl;
         }
 
         cout << endl;

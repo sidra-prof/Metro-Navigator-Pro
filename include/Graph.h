@@ -4,12 +4,16 @@
 #include<unordered_map>
 #include<vector>
 #include<string>
+ #include "Edge.h"
+
 using namespace std;
 class Graph
 {
 private:
-    unordered_map<string,vector<pair<string,int>>
-    >adjacencyList;
+unordered_map<
+string,
+vector<Edge>
+> adjacencyList;
 public:
     Graph();
     void addStation(
@@ -29,8 +33,8 @@ public:
 
     const unordered_map<
     string,
-    vector<pair<string,int>>
-    >& getAdjacencyList() const;
+    vector<Edge>
+>& getAdjacencyList() const;
 };
 
 #endif
