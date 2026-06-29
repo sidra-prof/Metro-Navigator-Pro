@@ -1,4 +1,4 @@
-#include "include/Graph.h"
+#include "Graph.h"
 #include<iostream>
 using namespace std;
 
@@ -39,6 +39,17 @@ void Graph::addConnection(
     adjacencyList[source].push_back({destination,distance});
     //destination -> source 
     adjacencyList[destination].push_back({source,distance});
+}
+
+/*------------------------------------------------
+         adjacency list return 
+--------------------------------------------------*/       
+const unordered_map<
+    string,
+    vector<pair<string,int>>
+>& Graph::getAdjacencyList() const
+{
+    return adjacencyList;
 }
 /*------------------------------------------------------------
     Display complete metro graph

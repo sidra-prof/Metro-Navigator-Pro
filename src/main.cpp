@@ -1,29 +1,36 @@
-#include "../include/Graph.h"
-#include<iostream>
+#include "Graph.h"
+#include "FileManager.h"
+#include "RouteFinder.h"
+
+#include <iostream>
+
 using namespace std;
+
 int main()
 {
     Graph metro;
 
-    metro.addConnection(
-        "Rajiv Chowk",
-        "New Delhi",
-        2
-    );
+    FileManager fileManager;
 
-    metro.addConnection(
-        "New Delhi",
-        "Chawri Bazar",
-        1
-    );
+    fileManager.loadStations("data/stations.csv", metro);
+    fileManager.loadRoutes("data/routes.csv", metro);
 
-    metro.addConnection(
-        "Rajiv Chowk",
-        "Patel Chowk",
-        1
-    );
+    RouteFinder routeFinder(metro);
 
-    metro.displayGraph();
+    vector<string> route =
+        routeFinder.findRouteBFS(
+            "Rajiv Chowk",
+            "Kashmere Gate"
+        );
+
+    cout << "\n========== SHORTEST ROUTE ==========\n\n";
+
+    for(const auto& station : route)
+    {
+        cout << station << endl;
+    }
+
+    cout << "\n====================================\n";
 
     return 0;
 }

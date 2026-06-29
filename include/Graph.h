@@ -12,7 +12,6 @@ private:
     >adjacencyList;
 public:
     Graph();
-    ~Graph();
     void addStation(
         const string& stationName
     );
@@ -26,6 +25,12 @@ public:
     ) const;
 
     void displayGraph() const;
+
+
+    const unordered_map<
+    string,
+    vector<pair<string,int>>
+    >& getAdjacencyList() const;
 };
 
 #endif
