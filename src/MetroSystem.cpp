@@ -1,6 +1,7 @@
 #include "MetroSystem.h"
-#include<vector>
+
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -47,119 +48,179 @@ void MetroSystem::initializeSystem()
 
 void MetroSystem::displayMenu() const
 {
-    cout << "\n=====================================\n";
-    cout << "       METRO NAVIGATOR PRO\n";
-    cout << "=====================================\n";
+    cout << "\n=========================================\n";
+    cout << "         METRO NAVIGATOR PRO\n";
+    cout << "=========================================\n";
 
     cout << "1. Find Shortest Route (BFS)\n";
     cout << "2. Find Shortest Distance (Dijkstra)\n";
     cout << "3. Display Metro Network\n";
     cout << "4. Exit\n";
 
-    cout << "=====================================\n";
+    cout << "=========================================\n";
+}
+
+/*------------------------------------------------------------
+    Get User Choice
+------------------------------------------------------------*/
+
+int MetroSystem::getUserChoice() const
+{
+    int choice;
+
+    cout << "\nEnter Choice : ";
+
+    cin >> choice;
+
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    return choice;
+}
+
+/*------------------------------------------------------------
+    Display Journey
+------------------------------------------------------------*/
+
+void MetroSystem::displayJourney(
+    const Journey& journey
+) const
+{
+    if(journey.route.empty())
+    {
+        cout << "\nNo route found.\n";
+        return;
+    }
+
+    cout << "\n=========================================\n";
+    cout << "           JOURNEY SUMMARY\n";
+    cout << "=========================================\n\n";
+
+    cout << "Source          : "
+         << journey.source << endl;
+
+    cout << "Destination     : "
+         << journey.destination << endl;
+
+    cout << "Stations        : "
+         << journey.totalStations << endl;
+
+    if(journey.distance > 0)
+    {
+        cout << "Distance        : "
+             << journey.distance
+             << " km\n";
+
+        cout << "Fare            : ₹"
+             << journey.fare
+             << endl;
+
+        cout << "Travel Time     : "
+             << journey.travelTime
+             << " minutes\n";
+    }
+
+    cout << "\nRoute\n";
+    cout << "-----------------------------------------\n";
+
+    for(size_t i = 0; i < journey.route.size(); i++)
+    {
+        cout << journey.route[i];
+
+        if(i != journey.route.size() - 1)
+        {
+            cout << "\n   |\n   V\n";
+        }
+    }
+
+    cout << "\n=========================================\n";
+}
+
+/*------------------------------------------------------------
+    Handle BFS
+------------------------------------------------------------*/
+
+void MetroSystem::handleBFS()
+{
+    string source;
+    string destination;
+
+    cout << "\nEnter Source Station : ";
+    getline(cin, source);
+
+    cout << "Enter Destination Station : ";
+    getline(cin, destination);
+
+    Journey journey =
+        routeFinder.findRouteBFS(
+            source,
+            destination
+        );
+
+    displayJourney(journey);
+}
+
+/*------------------------------------------------------------
+    Handle Dijkstra
+------------------------------------------------------------*/
+
+void MetroSystem::handleDijkstra()
+{
+    string source;
+    string destination;
+
+    cout << "\nEnter Source Station : ";
+    getline(cin, source);
+
+    cout << "Enter Destination Station : ";
+    getline(cin, destination);
+
+    Journey journey =
+        routeFinder.findRouteDijkstra(
+            source,
+            destination
+        );
+
+    journey.fare =
+        fareCalculator.calculateFare(
+            journey.distance
+        );
+
+    journey.travelTime =
+        fareCalculator.estimateTravelTime(
+            journey.distance
+        );
+
+    displayJourney(journey);
 }
 
 /*------------------------------------------------------------
     Handle User Choice
 ------------------------------------------------------------*/
-void MetroSystem::handleUserChoice(int choice)
+
+void MetroSystem::handleUserChoice(
+    int choice
+)
 {
     switch(choice)
     {
         case 1:
-        {
-            string source;
-            string destination;
-
-            cin.ignore();
-
-            cout << "\nEnter Source Station : ";
-            getline(cin, source);
-
-            cout << "Enter Destination Station : ";
-            getline(cin, destination);
-
-            vector<string> route =
-                routeFinder.findRouteBFS(source, destination);
-
-            if(route.empty())
-            {
-                cout << "\nNo route found.\n";
-                break;
-            }
-
-            cout << "\n========== SHORTEST ROUTE ==========\n\n";
-
-            for(size_t i = 0; i < route.size(); i++)
-            {
-                cout << route[i];
-
-                if(i != route.size() - 1)
-                {
-                    cout << " -> ";
-                }
-            }
-
-            cout << endl;
-
+            handleBFS();
             break;
-        }
 
         case 2:
-        {
-            string source;
-            string destination;
-
-            cin.ignore();
-
-            cout << "\nEnter Source Station : ";
-            getline(cin, source);
-
-            cout << "Enter Destination Station : ";
-            getline(cin, destination);
-
-            vector<string> route =
-                routeFinder.findRouteDijkstra(source, destination);
-
-            if(route.empty())
-            {
-                cout << "\nNo route found.\n";
-                break;
-            }
-
-            cout << "\n====== SHORTEST DISTANCE ROUTE ======\n\n";
-
-            for(size_t i = 0; i < route.size(); i++)
-            {
-                cout << route[i];
-
-                if(i != route.size() - 1)
-                {
-                    cout << " -> ";
-                }
-            }
-
-            cout << endl;
-
+            handleDijkstra();
             break;
-        }
 
         case 3:
-        {
             graph.displayGraph();
             break;
-        }
 
         case 4:
-        {
             cout << "\nThank you for using Metro Navigator Pro.\n";
             break;
-        }
 
         default:
-        {
-            cout << "\nInvalid Choice.\n";
-        }
+            cout << "\nInvalid choice.\n";
     }
 }
 
@@ -177,11 +238,10 @@ void MetroSystem::run()
     {
         displayMenu();
 
-        cout << "\nEnter Choice : ";
-
-        cin >> choice;
+        choice = getUserChoice();
 
         handleUserChoice(choice);
 
-    }while(choice != 4);
+    }
+    while(choice != 4);
 }

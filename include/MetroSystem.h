@@ -32,7 +32,9 @@ private:
 
     void handleDijkstra();
 
-    void displayRoute(const std::vector<std::string>& route) const;
+    void displayJourney(
+    const Journey& journey
+) const;
 };
 
 #endif

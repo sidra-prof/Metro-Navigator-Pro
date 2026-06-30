@@ -1,22 +1,31 @@
 #ifndef ROUTEFINDER_H
 #define ROUTEFINDER_H
-#include<string>
-#include<vector>
-using namespace std;
 
-class Graph;
+#include "Graph.h"
+#include "Journey.h"
 
-class RouteFinder{
-    Graph& graph ;
+#include <string>
+#include <vector>
+
+class RouteFinder
+{
+private:
+
+    Graph& graph;
+
 public:
-    RouteFinder(Graph& graph);
-    vector<string>findRouteBFS(const string& source,
-      const string& destination);
 
-    vector<string> findRouteDijkstra(
-    const string& source,
-    const string& destination
+    RouteFinder(Graph& graph);
+
+    Journey findRouteBFS(
+    const std::string& source,
+    const std::string& destination
 );
 
+    Journey findRouteDijkstra(
+        const std::string& source,
+        const std::string& destination
+    );
 };
+
 #endif

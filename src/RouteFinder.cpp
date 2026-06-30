@@ -1,6 +1,6 @@
 #include "RouteFinder.h"
 #include "Graph.h"
-
+#include "Journey.h"
 #include <queue>
 #include <limits>
 #include <unordered_map>
@@ -24,55 +24,47 @@ RouteFinder::RouteFinder(Graph& graph)
 /*------------------------------------------------------------
     Find Shortest Route using BFS
 ------------------------------------------------------------*/
-
-vector<string> RouteFinder::findRouteBFS(
+Journey RouteFinder::findRouteBFS(
     const string& source,
     const string& destination)
 {
-    vector<string> path;
+    Journey journey;
 
-    // Get graph data
     const auto& graphData = graph.getAdjacencyList();
 
-    // Check if source exists
     if(graphData.find(source) == graphData.end())
     {
         cout << "Source station not found.\n";
-        return path;
+        return journey;
     }
 
-    // Check if destination exists
     if(graphData.find(destination) == graphData.end())
     {
         cout << "Destination station not found.\n";
-        return path;
+        return journey;
     }
 
-    // Queue for BFS
     queue<string> bfsQueue;
 
-    // Keep track of visited stations
     unordered_set<string> visited;
 
-    // Store parent of each station
     unordered_map<string,string> parent;
 
-    // Start BFS
     bfsQueue.push(source);
+
     visited.insert(source);
 
     while(!bfsQueue.empty())
     {
         string currentStation = bfsQueue.front();
+
         bfsQueue.pop();
 
-        // Destination reached
         if(currentStation == destination)
         {
             break;
         }
 
-        // Visit neighbours
         for(const auto& neighbour : graphData.at(currentStation))
         {
             string nextStation = neighbour.destination;
@@ -88,43 +80,58 @@ vector<string> RouteFinder::findRouteBFS(
         }
     }
 
-    // No path exists
     if(source != destination &&
        parent.find(destination) == parent.end())
     {
         cout << "No route found.\n";
-        return path;
+        return journey;
     }
 
-    // Reconstruct path
     string current = destination;
 
     while(current != source)
     {
-        path.push_back(current);
+        journey.route.push_back(current);
+
         current = parent[current];
     }
 
-    path.push_back(source);
+    journey.route.push_back(source);
 
-    reverse(path.begin(), path.end());
+    reverse(
+        journey.route.begin(),
+        journey.route.end()
+    );
 
-    return path;
+    journey.source = source;
 
+    journey.destination = destination;
+
+    journey.totalStations =
+        static_cast<int>(journey.route.size());
+
+    // Distance isn't computed by BFS.
+    // Leave it as 0 for now.
+
+    return journey;
 }
-vector<string> RouteFinder::findRouteDijkstra(
+
+
+   
+Journey RouteFinder::findRouteDijkstra(
     const string& source,
-    const string& destination)
+    const string& destination
+)
 {
-    vector<string> path;
+    Journey journey;
 
     const auto& graphData = graph.getAdjacencyList();
 
     if(graphData.find(source) == graphData.end())
-        return path;
+        return journey;
 
     if(graphData.find(destination) == graphData.end())
-        return path;
+        return journey;
 
     unordered_map<string,int> distance;
     unordered_map<string,string> parent;
@@ -174,20 +181,34 @@ vector<string> RouteFinder::findRouteDijkstra(
     if(source != destination &&
        parent.find(destination) == parent.end())
     {
-        return path;
+        return journey;
     }
 
     string current = destination;
 
     while(current != source)
     {
-        path.push_back(current);
+        journey.route.push_back(current);
         current = parent[current];
     }
 
-    path.push_back(source);
+    journey.route.push_back(source);
 
-    reverse(path.begin(), path.end());
+    reverse(
+    journey.route.begin(),
+    journey.route.end()
+);
+    journey.distance =
+    distance[destination];
+    journey.source = source;
+    journey.destination = destination;
 
-    return path;
+    journey.totalStations =
+    static_cast<int>(journey.route.size());
+
+    journey.totalStations =
+    journey.route.size();
+
+    return journey;
+
 }
