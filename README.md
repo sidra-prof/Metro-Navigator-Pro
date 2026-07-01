@@ -1,262 +1,324 @@
 # 🚇 Metro Navigator Pro
 
-> **A Professional C++ Metro Navigation System using Graph Data Structures, BFS, and Dijkstra's Algorithm**
+> A professional C++17 console application for metro route navigation using **Graph Data Structures**, **Breadth First Search (BFS)**, and **Dijkstra's Algorithm**.
 
-![Language](https://img.shields.io/badge/Language-C%2B%2B17-blue)
-![Build](https://img.shields.io/badge/Build-GCC-success)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Status](https://img.shields.io/badge/Status-Active-orange)
+![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
+![STL](https://img.shields.io/badge/STL-Used-success)
+![OOP](https://img.shields.io/badge/OOP-Design-orange)
+![Graph](https://img.shields.io/badge/Data%20Structure-Graph-red)
+![Algorithms](https://img.shields.io/badge/Algorithms-BFS%20%7C%20Dijkstra-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ---
 
-# 📖 About
+# 📖 Overview
 
-Metro Navigator Pro is a modular C++ application that simulates a real-world metro navigation system.
+Metro Navigator Pro is a graph-based metro route planning application developed using **C++17** and **Object-Oriented Programming**.
 
-The project models metro stations as nodes and connections between stations as weighted edges in a graph. It provides efficient route planning using industry-standard graph algorithms.
+The application dynamically loads metro station and route information from CSV files, constructs a weighted graph, and calculates optimal routes using graph traversal algorithms.
 
-The primary objective of this project is to strengthen knowledge of Data Structures, Algorithms, Object-Oriented Programming, and Software Engineering principles by solving a practical real-world problem.
+This project demonstrates practical implementation of:
 
-This project is being developed incrementally using Git and GitHub with meaningful commits to reflect a professional software development workflow.
+- Object-Oriented Programming
+- Graph Data Structure
+- Breadth First Search (BFS)
+- Dijkstra's Algorithm
+- STL Containers
+- File Handling
+- Software Architecture
+- Git & GitHub Workflow
 
 ---
 
 # ✨ Features
 
-## Current Features
+✅ Dynamic CSV Data Loading
 
-* Graph-based Metro Network
-* Breadth-First Search (Shortest Route)
-* Dijkstra's Algorithm (Shortest Distance)
-* CSV-Based Data Loading
-* Modular Object-Oriented Design
-* Professional Git Version Control
-* Clean Project Architecture
+✅ Graph using Adjacency List
 
----
+✅ Breadth First Search (Minimum Stations)
 
-# 🚀 Upcoming Features
+✅ Dijkstra's Algorithm (Shortest Distance)
 
-* Fare Calculator
-* Travel Time Estimator
-* Interchange Detection
-* Metro Line Information
-* Admin Panel
-* Save Metro Data to CSV
-* Professional Console Interface
-* Qt GUI Version
+✅ Fare Estimation
+
+✅ Travel Time Estimation
+
+✅ Journey Summary
+
+✅ Interactive Console Menu
+
+✅ Modular OOP Architecture
+
+✅ Professional Folder Structure
 
 ---
 
-# 🛠️ Tech Stack
+# 🛠 Technologies Used
 
-| Category        | Technology                             |
-| --------------- | -------------------------------------- |
-| Language        | C++17                                  |
-| Compiler        | MinGW-w64 / GCC                        |
-| IDE             | Visual Studio Code                     |
-| Version Control | Git                                    |
-| Repository      | GitHub                                 |
-| Data Storage    | CSV Files                              |
-| Algorithms      | BFS, Dijkstra                          |
-| Data Structures | Graph, Queue, Priority Queue, Hash Map |
+| Technology | Purpose |
+|------------|----------|
+| C++17 | Programming Language |
+| STL | Data Structures |
+| Graph | Metro Network |
+| BFS | Minimum Stops |
+| Dijkstra | Shortest Distance |
+| CSV | Data Storage |
+| Git | Version Control |
+| GitHub | Repository Hosting |
 
 ---
 
-# 📁 Project Structure
+# 🏗 Project Architecture
 
-```text
-Metro-Navigator-Pro
-│
-├── data/
-│   ├── stations.csv
-│   └── routes.csv
-│
-├── docs/
-│   ├── Architecture.md
-│   ├── Algorithms.md
-│   └── Development-Journal.md
-│
-├── include/
-│
-├── screenshots/
-│
-├── src/
-│
-├── tests/
-│
-├── .gitignore
-├── CHANGELOG.md
-├── LICENSE
-└── README.md
+```
+main()
+
+↓
+
+MetroSystem
+
+↓
+
+FileManager
+
+↓
+
+Graph
+
+↓
+
+RouteFinder
+
+↓
+
+Journey
+
+↓
+
+FareCalculator
 ```
 
 ---
 
-# 🏗️ Project Architecture
+# 📂 Folder Structure
 
-```text
-                  main()
-                     │
-                     ▼
-              MetroSystem
-                     │
-     ┌───────────────┼───────────────┐
-     ▼               ▼               ▼
-   Graph       RouteFinder      FileManager
-     │
-     ▼
-    Edge
-     │
-     ▼
-  Station
+```
+Metro-Navigator-Pro/
+
+├── assets/
+├── data/
+│   ├── stations.csv
+│   └── routes.csv
+├── docs/
+│   ├── Architecture.md
+│   ├── Algorithms.md
+│   ├── API.md
+│   ├── Development-Journal.md
+│   ├── Testing.md
+│   └── Future.md
+├── include/
+├── screenshots/
+├── src/
+├── tests/
+├── LICENSE
+├── README.md
+└── .gitignore
 ```
 
 ---
 
 # 🧠 Algorithms Used
 
-## Breadth-First Search (BFS)
+## Breadth First Search (BFS)
 
-Purpose:
+Purpose
 
-* Finds the shortest path based on the minimum number of stations.
+Finds the route containing the minimum number of stations.
 
-Time Complexity:
+Time Complexity
 
-```text
-O(V + E)
 ```
-
-Space Complexity:
-
-```text
-O(V)
+O(V + E)
 ```
 
 ---
 
 ## Dijkstra's Algorithm
 
-Purpose:
+Purpose
 
-* Finds the shortest route based on total travel distance.
+Finds the shortest distance between two stations.
 
-Time Complexity:
+Time Complexity
 
-```text
-O((V + E) log V)
 ```
-
-Space Complexity:
-
-```text
-O(V)
+O((V + E) log V)
 ```
 
 ---
 
 # 📊 Data Structures Used
 
-* Graph (Adjacency List)
-* Hash Map (unordered_map)
-* Queue
-* Priority Queue
-* Vector
-* Edge Structure
+- Graph
+- Adjacency List
+- Queue
+- Priority Queue
+- Vector
+- Unordered Map
+- Unordered Set
 
 ---
 
-# ⚙️ Installation
-
-Clone the repository
+# 💻 How to Compile
 
 ```bash
-git clone https://github.com/<your-username>/Metro-Navigator-Pro.git
-```
-
-Move into the project directory
-
-```bash
-cd Metro-Navigator-Pro
-```
-
-Compile
-
-```bash
-g++ -Wall -Wextra -std=c++17 -Iinclude src/main.cpp src/Graph.cpp src/FileManager.cpp src/RouteFinder.cpp src/Station.cpp src/FareCalculator.cpp src/MetroSystem.cpp -o metro.exe
-```
-
-Run
-
-```bash
-metro.exe
+g++ -std=c++17 -Wall -Wextra -O2 -Iinclude src/*.cpp -o MetroNavigator.exe
 ```
 
 ---
 
-# 📷 Screenshots
+# ▶ How to Run
 
-Project screenshots will be added after completion of the console interface.
+Windows
 
----
+```bash
+.\MetroNavigator.exe
+```
 
-# 📚 Learning Objectives
+Linux
 
-This project demonstrates practical implementation of:
-
-* Object-Oriented Programming
-* Graph Data Structures
-* Breadth-First Search
-* Dijkstra's Algorithm
-* File Handling in C++
-* Software Architecture
-* Modular Programming
-* Git and GitHub Workflow
+```bash
+./MetroNavigator
+```
 
 ---
 
-# 🗺️ Future Roadmap
+# 🚇 Sample Journey
 
-* Interactive Console Menu
-* Fare Calculation
-* Travel Time Prediction
-* Interchange Optimization
-* Unit Testing
-* CMake Build Support
-* GitHub Actions CI
-* Qt Desktop GUI
+```
+==========================================
+          JOURNEY SUMMARY
+==========================================
 
----
+Source            : Rajiv Chowk
+Destination       : Kashmere Gate
 
-# 📈 Version History
+Stations          : 4
+Distance          : 5 km
+Fare              : ₹20
+Travel Time       : 15 Minutes
 
-| Version | Status                      |
-| ------- | --------------------------- |
-| v0.1    | Project Initialization      |
-| v0.2    | Station Module              |
-| v0.3    | Graph Engine                |
-| v0.4    | CSV Loader                  |
-| v0.5    | BFS Route Finder            |
-| v0.6    | Dijkstra Algorithm          |
-| v1.0    | Metro Navigator Pro Release |
+Route
 
----
+Rajiv Chowk
+      │
+      ▼
+New Delhi
+      │
+      ▼
+Chawri Bazar
+      │
+      ▼
+Kashmere Gate
 
-# 🤝 Contributing
-
-Contributions, suggestions, and improvements are welcome.
-
-If you would like to contribute:
-
-1. Fork the repository
-2. Create a new feature branch
-3. Commit your changes
-4. Submit a Pull Request
+==========================================
+```
 
 ---
 
-# 📄 License
+# 📸 Screenshots
+
+## Main Menu
+
+> *(Add screenshots/menu.png)*
+
+---
+
+## BFS Route
+
+> *(Add screenshots/bfs.png)*
+
+---
+
+## Dijkstra Route
+
+> *(Add screenshots/dijkstra.png)*
+
+---
+
+## Metro Graph
+
+> *(Add screenshots/graph.png)*
+
+---
+
+# 📚 Documentation
+
+Detailed documentation is available in the **docs** directory.
+
+- Architecture
+- Algorithms
+- API
+- Development Journal
+- Testing
+- Future Scope
+
+---
+
+# 🧪 Testing
+
+The application has been manually tested for:
+
+- CSV Loading
+- Graph Construction
+- BFS
+- Dijkstra
+- Journey Summary
+- Fare Calculation
+- Invalid Inputs
+- Large Dataset
+
+Testing documentation is available in:
+
+```
+docs/Testing.md
+```
+
+---
+
+# 🎯 Future Enhancements
+
+- GUI Version
+- Real-time Metro Updates
+- Database Integration
+- GPS Support
+- Route Optimization
+- Platform Information
+- Multi-language Support
+- Unit Testing
+- CI/CD Pipeline
+
+---
+
+# 📈 Learning Outcomes
+
+This project strengthened my understanding of:
+
+- Object-Oriented Programming
+- Graph Data Structures
+- Graph Algorithms
+- STL
+- File Handling
+- Software Engineering
+- Git
+- GitHub
+- Clean Code
+- Modular Programming
+
+---
+
+# 📜 License
 
 This project is licensed under the MIT License.
 
@@ -268,12 +330,16 @@ See the LICENSE file for details.
 
 **Sidra Chaudhary**
 
-Computer Science Student
+B.Sc. Computer Science
 
-Passionate about Software Development, Data Structures & Algorithms, and Artificial Intelligence.
+Delhi University
 
 GitHub: https://github.com/sidra-prof
 
 ---
 
-## ⭐ If you found this project helpful, consider giving it a star!
+# ⭐ If you found this project useful
+
+Please consider giving it a ⭐ on GitHub.
+
+Feedback and suggestions are always welcome.
