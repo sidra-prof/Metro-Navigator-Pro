@@ -20,22 +20,22 @@ bool FileManager::loadStations(const string& filename,Graph& graph)
     string line;
     // skip header of csv
     getline(file,line);
-     while (getline(file, line))
-    {
-        stringstream ss(line);
+    while (getline(file, line))
+{
+    stringstream ss(line);
 
-        string id;
-        string name;
-        string metroLine;
-        string interchange;
+    string id;
+    string name;
+    string metroLine;
+    string interchange;
 
-        getline(ss, id, ',');
-        getline(ss, name, ',');
-        getline(ss, metroLine, ',');
-        getline(ss, interchange, ',');
+    getline(ss, id, ',');
+    getline(ss, name, ',');
+    getline(ss, metroLine, ',');
+    getline(ss, interchange, ',');
 
-        graph.addStation(name);
-    }
+    graph.addStation(name);
+}
 
     file.close();
 

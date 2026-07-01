@@ -9,7 +9,7 @@ Graph::Graph()
 //-------------------------------------
 // check whether a station Exists
 //------------------------------------
-bool Graph::stationExists(const string& stationName ) const
+bool Graph::stationExists(const string& stationName) const
 {
     return adjacencyList.find(stationName) != adjacencyList.end();
 }
@@ -18,10 +18,12 @@ bool Graph::stationExists(const string& stationName ) const
 ---------------------------------------------------   
 */
 void Graph::addStation(const string& stationName)
+
 {
+
     if(!stationExists(stationName))
     {
-        adjacencyList[stationName]= {};
+        adjacencyList[stationName] = {};
     }
 }
 /*------------------------------------------------------------
