@@ -1,6 +1,51 @@
-id,name,line,isInterchange
-1,Rajiv Chowk,Blue,true
-2,New Delhi,Yellow,true
-3,Patel Chowk,Yellow,false
-4,Chawri Bazar,Yellow,false
-5,Kashmere Gate,Red,true
+id	name	line	isInterchange
+1	Rithala	Red	FALSE
+2	Rohini West	Red	FALSE
+3	Rohini East	Red	FALSE
+4	Pitam Pura	Red	FALSE
+5	Kohat Enclave	Red	FALSE
+6	Netaji Subhash Place	Red	TRUE
+7	Keshav Puram	Red	FALSE
+8	Kanhaiya Nagar	Red	FALSE
+9	Inderlok	Red	TRUE
+10	Shastri Nagar	Red	FALSE
+11	Pratap Nagar	Red	FALSE
+12	Pul Bangash	Red	FALSE
+13	Tis Hazari	Red	FALSE
+14	Kashmere Gate	Red	TRUE
+15	Chandni Chowk	Yellow	FALSE
+16	Chawri Bazar	Yellow	FALSE
+17	New Delhi	Yellow	TRUE
+18	Rajiv Chowk	Blue	TRUE
+19	Patel Chowk	Yellow	FALSE
+20	Central Secretariat	Yellow	TRUE
+21	Udyog Bhawan	Yellow	FALSE
+22	Lok Kalyan Marg	Yellow	FALSE
+23	Jor Bagh	Yellow	FALSE
+24	INA	Yellow	TRUE
+25	AIIMS	Yellow	FALSE
+26	Green Park	Yellow	FALSE
+27	Hauz Khas	Yellow	TRUE
+28	Malviya Nagar	Yellow	FALSE
+29	Saket	Yellow	FALSE
+30	Qutub Minar	Yellow	FALSE
+31	Chhatarpur	Yellow	FALSE
+32	Sultanpur	Yellow	FALSE
+33	Ghitorni	Yellow	FALSE
+34	Arjan Garh	Yellow	FALSE
+35	Guru Dronacharya	Yellow	FALSE
+36	Sikanderpur	Yellow	TRUE
+37	MG Road	Yellow	FALSE
+38	IFFCO Chowk	Yellow	FALSE
+39	Millennium City Centre Gurugram	Yellow	FALSE
+40	Barakhamba Road	Blue	FALSE
+41	Mandi House	Blue	TRUE
+42	Pragati Maidan	Blue	FALSE
+43	Indraprastha	Blue	FALSE
+44	Yamuna Bank	Blue	TRUE
+45	Akshardham	Blue	FALSE
+46	Mayur Vihar Phase 1	Blue	FALSE
+47	Mayur Vihar Extension	Blue	FALSE
+48	New Ashok Nagar	Blue	FALSE
+49	Noida Sector 15	Blue	FALSE
+50	Noida Sector 16	Blue	FALSE

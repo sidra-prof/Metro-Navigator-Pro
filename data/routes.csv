@@ -1,5 +1,45 @@
 source,destination,distance
-Rajiv Chowk,New Delhi,2
+Rithala,Rohini West,2
+Rohini West,Rohini East,2
+Rohini East,Pitam Pura,2
+Pitam Pura,Kohat Enclave,2
+Kohat Enclave,Netaji Subhash Place,2
+Netaji Subhash Place,Keshav Puram,2
+Keshav Puram,Kanhiya Nagar,2
+Kanhiya Nagar,Inderlok,2
+Inderlok,Shastri Nagar,2
+Shastri Nagar,Pratap Nagar,2
+Pratap Nagar,Pul Bangash,2
+Pul Bangash,Tis Hazari,2
+Tis Hazari,Kashmere Gate,2
+Kashmere Gate,Chandni Chowk,1
+Chandni Chowk,Chawri Bazar,1
+Chawri Bazar,New Delhi,1
+New Delhi,Rajiv Chowk,2
 Rajiv Chowk,Patel Chowk,1
-New Delhi,Chawri Bazar,1
-Chawri Bazar,Kashmere Gate,2
+Patel Chowk,Central Secretariat,1
+Central Secretariat,Udyog Bhawan,1
+Udyog Bhawan,Lok Kalyan Marg,2
+Lok Kalyan Marg,Jor Bagh,2
+Jor Bagh,INA,1
+INA,AIIMS,1
+AIIMS,Green Park,2
+Green Park,Hauz Khas,2
+Hauz Khas,Malviya Nagar,2
+Malviya Nagar,Saket,2
+Saket,Qutub Minar,2
+Qutub Minar,HUDA City Centre,5
+Rajiv Chowk,Barakhamba Road,1
+Barakhamba Road,Mandi House,1
+Mandi House,Pragati Maidan,1
+Pragati Maidan,Indraprastha,2
+Indraprastha,Yamuna Bank,2
+Yamuna Bank,Akshardham,2
+Akshardham,Mayur Vihar Phase 1,2
+Mayur Vihar Phase 1,Noida Sector 15,2
+Noida Sector 15,Noida Sector 16,1
+Rajiv Chowk,New Delhi,2
+Mandi House,Central Secretariat,2
+Kashmere Gate,Inderlok,5
+INA,Hauz Khas,3
+Netaji Subhash Place,Inderlok,4

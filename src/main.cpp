@@ -1,11 +1,38 @@
 #include "MetroSystem.h"
+#include <cstdlib>
+#include <iostream>
+#include <exception>
+
+using namespace std;
+
+/*------------------------------------------------------------
+    Metro Navigator Pro
+    Entry Point
+------------------------------------------------------------*/
 
 int main()
 {
-    MetroSystem metroSystem;
+    try
+    {
+        MetroSystem metroSystem;
 
-    metroSystem.run();
+        metroSystem.run();
+    }
+    catch(const exception& exception)
+    {
+        cerr << "\nApplication Error: "
+             << exception.what()
+             << endl;
 
-    return 0;
+        return EXIT_FAILURE;
+    }
+    catch(...)
+    {
+        cerr << "\nUnknown application error occurred."
+             << endl;
+
+        return EXIT_FAILURE;
+    }
+
+    return EXIT_SUCCESS;
 }
-

@@ -150,6 +150,15 @@ void MetroSystem::handleBFS()
     cout << "Enter Destination Station : ";
     getline(cin, destination);
 
+    cout << "\nSource: [" << source << "]\n";
+    cout << "Destination: [" << destination << "]\n";
+
+    cout << "\nStation Exists (Source): "
+     << graph.stationExists(source) << endl;
+
+    cout << "Station Exists (Destination): "
+     << graph.stationExists(destination) << endl;
+
     Journey journey =
         routeFinder.findRouteBFS(
             source,
@@ -174,6 +183,15 @@ void MetroSystem::handleDijkstra()
     cout << "Enter Destination Station : ";
     getline(cin, destination);
 
+    cout << "\nSource: [" << source << "]\n";
+    cout << "Destination: [" << destination << "]\n";
+
+    cout << "\nStation Exists (Source): "
+     << graph.stationExists(source) << endl;
+
+    cout << "Station Exists (Destination): "
+     << graph.stationExists(destination) << endl;
+     
     Journey journey =
         routeFinder.findRouteDijkstra(
             source,
