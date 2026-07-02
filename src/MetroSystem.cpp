@@ -34,7 +34,7 @@ void MetroSystem::initializeSystem()
 
     if(stationsLoaded && routesLoaded)
     {
-        cout << "\nMetro data loaded successfully.\n";
+        cout << "    \nMetro data loaded successfully.\n";
     }
     else
     {
@@ -48,16 +48,18 @@ void MetroSystem::initializeSystem()
 
 void MetroSystem::displayMenu() const
 {
-    cout << "\n=========================================\n";
-    cout << "         METRO NAVIGATOR PRO\n";
-    cout << "=========================================\n";
 
-    cout << "1. Find Shortest Route (BFS)\n";
-    cout << "2. Find Shortest Distance (Dijkstra)\n";
-    cout << "3. Display Metro Network\n";
-    cout << "4. Exit\n";
+    cout<< "===========================================================================\n";
+    cout << "          METRO NAVIGATOR PRO v1.0\n";
+    cout << "     Graph Based Delhi Metro Route Planner\n";
+    cout<< "===========================================================================\n\n";
 
-    cout << "=========================================\n";
+    cout << "    1. Find Shortest Route (BFS)\n";
+    cout << "    2. Find Shortest Distance (Dijkstra)\n";
+    cout << "    3. Display Metro Network\n";
+    cout << "    4. Exit\n\n";
+
+    cout << "=========================================================================\n";
 }
 
 /*------------------------------------------------------------
@@ -68,7 +70,7 @@ int MetroSystem::getUserChoice() const
 {
     int choice;
 
-    cout << "\nEnter Choice : ";
+    cout << "    \nEnter Choice > ";
 
     cin >> choice;
 
@@ -110,7 +112,7 @@ void MetroSystem::displayJourney(
              << journey.distance
              << " km\n";
 
-        cout << "Fare            : ₹"
+        cout << "Fare            : Rs."
              << journey.fare
              << endl;
 
